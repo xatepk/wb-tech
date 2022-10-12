@@ -1,15 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanCSSPlugin = require('less-plugin-clean-css');
 
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-        publicPath: ''
+    publicPath: '',
+    clean: true
   },
     mode: 'development',
   devServer: {
@@ -26,43 +25,31 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|woff|woff2)$/,
         type: 'asset/resource'
       },
       {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
         test: /\.less$/i,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "less-loader",
-            options: {
-              lessOptions: {
-                plugins: [
-                  new CleanCSSPlugin({ advanced: true }),
-                ],
-              },
-            },
-          },
-        ],
+        use: [ 'style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader'
-        }]
-      }
+          loader: 'css-loader',
+          options: { importLoaders: 1 }
+        },
+        'postcss-loader']
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-      new CleanWebpackPlugin(),
-      new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin()
   ]
 };
