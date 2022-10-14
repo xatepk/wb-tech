@@ -1,8 +1,9 @@
 import './styles/index.less';
 import Api from './components/Api';
-import { iconContainer } from './utils/utils';
+import { iconContainer, lampImage, lampValue } from './utils/utils';
 import Section from './components/Section';
 import Lamp from './components/Lamp';
+import LampInfo from './components/LampInfo';
 
 const api = new Api({
   baseUrl: 'https://private-anon-983412ab49-lampshop.apiary-mock.com/lamps',
@@ -30,7 +31,8 @@ api.getInitialLamps()
     const lampElement = new Lamp({
       item,
       handleLampClick: () => {
-        console.log('поменяй картинку');
+        const lampInfo = new LampInfo(lampValue, lampImage);
+        lampInfo.setLampInfo(item);
       },
     }, '#icons').generateLamp();
     return lampElement

@@ -27,14 +27,15 @@
   }
 
   &__theme {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   &__button-theme {
-    flex: 1;
+    aspect-ratio: 1;
     padding: 0;
     border: none;
-    height: 84px;
+    // height: 84px;
 
     &:hover {
       cursor: pointer;

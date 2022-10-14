@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   border-top: #C4C4C4 1px solid;
+  position: relative;
 
     &__info {
       position: relative;
@@ -32,6 +33,7 @@
       font-weight: bold;
       margin-left: 93px;
       padding-bottom: 10px;
+      z-index: 9;
 
       &:last-of-type {
         padding-bottom: 0;
@@ -40,5 +42,14 @@
 
     &__item-value {
       font-weight: normal;
+      text-transform: capitalize;
+    }
+
+    &__lamp-image {
+      max-width: 150px;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 200px;
     }
 }
