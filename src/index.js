@@ -1,6 +1,6 @@
 import './styles/index.less';
 import Api from './components/Api';
-import { iconContainer, lampImage, lampValue } from './utils/utils';
+import { iconContainer, lampImage, lampIsActive, lampValue } from './utils/utils';
 import Section from './components/Section';
 import Lamp from './components/Lamp';
 import LampInfo from './components/LampInfo';

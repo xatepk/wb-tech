@@ -37,8 +37,7 @@ export default class Lamp {
 
   _setEventListeners() {
     this._lampImage.addEventListener('click', () => {
-      this._handleLampClick(this._element);
+      this._handleLampClick();
     });
   }
-
 }
