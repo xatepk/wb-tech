@@ -1,5 +1,44 @@
 .lamp-section {
   overflow: hidden;
   display: flex;
-  
+  justify-content: space-between;
+  border-top: #C4C4C4 1px solid;
+
+    &__info {
+      position: relative;
+    }
+
+    &__list {
+      width: 405px;
+      max-width: 405px;
+      background-color: #E4D7B9;
+      border-radius: 50%;
+      height: 452px;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 25px;
+      left: -57px;
+    }
+
+    &__list-item {
+      max-width: 280px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 93px;
+      padding-bottom: 10px;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+
+    &__item-value {
+      font-weight: normal;
+    }
 }

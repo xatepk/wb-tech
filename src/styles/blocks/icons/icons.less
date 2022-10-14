@@ -1,0 +1,55 @@
+.icons {
+  margin-top: 40px;
+  background-color: #BDDDDD;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    text-decoration: none;
+    margin: 17px;
+  }
+
+  &__image {
+    width: 131px;
+    height: 133px;
+    object-fit: contain;
+    border-radius: 14px;
+
+    &:hover {
+      background-color: rgba(#fff, 0.25) ;
+    }
+  }
+
+  &__theme {
+    display: flex;
+  }
+
+  &__button-theme {
+    flex: 1;
+    padding: 0;
+    border: none;
+    height: 84px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+
+    &_light {
+      background: url(../../../img/light.svg) no-repeat center;
+      background-color: #FFF3DA;
+      border-bottom-left-radius: 14px;
+    }
+
+    &_dark {
+      background: url(../../../img/dark.svg) no-repeat center;
+      background-color: #94A6A6;
+    }
+  }
+}

@@ -25,7 +25,7 @@ export default class Lamp {
 
   generateLamp() {
     this._element = this._getTemplate();
-    this._lampImage = this._element.querySelector('.icon__image');
+    this._lampImage = this._element.querySelector('.icons__image');
     this._lampImage.src = this._link;
     this._lampImage.alt = this._name;
 
