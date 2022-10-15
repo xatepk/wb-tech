@@ -1,6 +1,6 @@
 import './styles/index.less';
 import Api from './components/Api';
-import { iconContainer, lampImage, lampImageSelector, lampIsActive, lampValue } from './utils/utils';
+import { iconContainer, lampImage, lampImageSelector, lampIsActive, lampValue, preloader, preloaderNone } from './utils/utils';
 import Section from './components/Section';
 import Lamp from './components/Lamp';
 import LampInfo from './components/LampInfo';
@@ -16,6 +16,7 @@ const api = new Api({
 
 api.getInitialLamps()
 .then((result) => {
+  document.querySelector(preloader).classList.add(preloaderNone);
   const initialLamps = result;
 
   //создаем экземпляр класса Section для инициализации лампочек с сервера

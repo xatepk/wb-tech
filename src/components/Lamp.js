@@ -56,6 +56,7 @@ export default class Lamp {
     if (!this._darkMode) {
       darkTheme.disabled = true;
       document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
+      document.querySelector('.interior-demo__image').classList.remove('interior-demo__image_dark');
     } else {
       darkTheme.disabled = false;
       document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
