@@ -11,6 +11,7 @@ export default class Lamp {
     this._isDarkMode = item.electrification || false;
     this._handleLampClick = handleLampClick;
     this._lampSelector = lampSelector;
+    this._darkMode = item.isDarkMode;
   }
 
   _getTemplate() {
@@ -37,7 +38,27 @@ export default class Lamp {
 
   _setEventListeners() {
     this._lampImage.addEventListener('click', () => {
-      this._handleLampClick();
+      this._handleLampClick(this);
     });
+  }
+
+  setClassIsActive() {
+    const imageLamp = this._element.querySelector('.icons__image');
+    const lampList = document.querySelectorAll('.icons__image');
+    const darkTheme = document.querySelector('.icons__button-theme_dark')
+
+    for(let i = 0; i < lampList.length; i++) {
+      lampList[i].classList.remove('icons__image_is-active');
+    }
+
+    imageLamp.classList.add('icons__image_is-active');
+
+    if (!this._darkMode) {
+      darkTheme.disabled = true;
+      document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
+    } else {
+      darkTheme.disabled = false;
+      document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
+    }
   }
 }

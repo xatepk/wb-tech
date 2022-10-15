@@ -1,9 +1,10 @@
 import './styles/index.less';
 import Api from './components/Api';
-import { iconContainer, lampImage, lampIsActive, lampValue } from './utils/utils';
+import { iconContainer, lampImage, lampImageSelector, lampIsActive, lampValue } from './utils/utils';
 import Section from './components/Section';
 import Lamp from './components/Lamp';
 import LampInfo from './components/LampInfo';
+import ThemeLamp from './components/ThemeLamp';
 
 const api = new Api({
   baseUrl: 'https://private-anon-983412ab49-lampshop.apiary-mock.com/lamps',
@@ -30,13 +31,19 @@ api.getInitialLamps()
   const createLamp = (item) => {
     const lampElement = new Lamp({
       item,
-      handleLampClick: () => {
+      handleLampClick: (context) => {
+        context.setClassIsActive();
         const lampInfo = new LampInfo(lampValue, lampImage);
         lampInfo.setLampInfo(item);
+
+        const themeLamp = new ThemeLamp(item);
+        themeLamp.setIconsActive();
       },
     }, '#icons').generateLamp();
     return lampElement
   }
+
+
 
   lampsList.renderItems();
 })

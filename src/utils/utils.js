@@ -1,4 +1,4 @@
 export const iconContainer = '.icons__list';
 export const lampValue = '.lamp-section__item-value';
 export const lampImage = '.interior-demo__lamp';
-export const lampIsActive = 'icons__image_is-active';
+export const lampImageSelector = '.icons__image';
