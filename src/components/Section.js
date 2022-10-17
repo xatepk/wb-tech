@@ -7,20 +7,21 @@ export default class Section {
   }
 
   renderItems() {
-    this._renderedItems.forEach(item => {
-      this._renderer(item)});
+    this._renderedItems.forEach((item) => {
+      this._renderer(item);
+    });
   }
 
   addItem(element) {
-    this._container.prepend(element);
+    this._container.append(element);
   }
 
   getHeigth() {
     const iconsItem = this._container.querySelectorAll('.icons__item');
     let height = 0;
     for (let i = 0; i < 3; i++) {
-      height = height + iconsItem[i].offsetHeight;
+      height += iconsItem[i].offsetHeight;
     }
-    this._container.style.maxHeight = height+'px';
+    this._container.style.maxHeight = `${height}px`;
   }
 }

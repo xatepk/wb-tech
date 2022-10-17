@@ -1,32 +1,38 @@
 const path = require('path');
+
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const mode = process.env.NODE_ENV || 'development';
+const devMode = mode === 'development';
+const devtool = devMode ? 'source-map' : undefined;
+
 module.exports = {
-  entry: { main: './src/index.js' },
+  mode,
+  devtool,
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
-    publicPath: '',
-    clean: true
+    filename: './js/bundle.[contenthash:8].js',
+    clean: true,
+    assetModuleFilename: './assets/[name].[contenthash:8][ext]',
   },
-    mode: 'development',
   devServer: {
-    static: path.resolve(__dirname, './dist'),
-    compress: true,
     port: 8080,
-    open: true
+    open: true,
+    hot: true,
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|ttf)$/,
-        type: 'asset/resource'
+        test: /\.(png|svg|jpe?g|gif|woff|woff2|ttf)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.html$/,
@@ -34,22 +40,22 @@ module.exports = {
       },
       {
         test: /\.less$/i,
-        use: [ 'style-loader', 'css-loader', 'less-loader'],
+        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: { importLoaders: 1 }
-        },
-        'postcss-loader']
-      },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
     }),
-    new MiniCssExtractPlugin()
-  ]
+    !devMode && new MiniCssExtractPlugin({
+      filename: './css/index.css',
+    }),
+  ].filter(Boolean),
+  optimization: {
+    minimizer: [
+      !devMode && new CssMinimizerPlugin(),
+    ].filter(Boolean),
+  },
 };

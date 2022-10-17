@@ -17,7 +17,7 @@
 
 **GitHubPages**
 
-* [Ссылка на страницу в GitHubPages]()
+* [Ссылка на страницу в GitHubPages](https://xatepk.github.io/wb-tech/dist/)
 
 **Требования к работе.**
 1. Использовать препроцессоры.

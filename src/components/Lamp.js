@@ -3,7 +3,7 @@ export default class Lamp {
     this._name = item.name || '';
     this._id = item.id;
     this._link = item.image;
-    this._material= item.material || '';
+    this._material = item.material || '';
     this._height = item.height || 0;
     this._width = item.width || 0;
     this._weight = item.weight || 0;
@@ -33,7 +33,7 @@ export default class Lamp {
     // установка обработчиков событий для лампочки
     this._setEventListeners();
 
-  	return this._element;
+    return this._element;
   }
 
   _setEventListeners() {
@@ -47,7 +47,7 @@ export default class Lamp {
     const lampList = document.querySelectorAll('.icons__image');
     const darkTheme = document.querySelector('.interior-demo__image-dark');
 
-    for(let i = 0; i < lampList.length; i++) {
+    for (let i = 0; i < lampList.length; i++) {
       lampList[i].classList.remove('icons__image_is-active');
     }
 
