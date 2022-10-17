@@ -1,0 +1,111 @@
+.nav {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    @media screen and (@breakpoint-lg) {
+      max-width: 200px;
+    }
+
+    @media screen and (@breakpoint-md) {
+      max-width: 100px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+
+    @media screen and (@breakpoint-xs) {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      background-color: @bgcolor;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 72px;
+      left: 0px;
+      z-index: 9999;
+    }
+  }
+
+  &__list-item {
+    margin-left: 56px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    @media screen and (@breakpoint-md) {
+      margin-left: 20px;
+    }
+
+    @media screen and (@breakpoint-xs) {
+      text-align: center;
+      width: 100%;
+      margin: 20px auto;
+    }
+  }
+
+  &__item-link {
+    text-decoration: none;
+    color: #3D9090;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.17;
+    transition: opacity .7s;
+
+    @media screen and (@breakpoint-lg) {
+      font-size: 16px;
+    }
+
+    @media screen and (@breakpoint-md) {
+      font-size: 12px;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__btn{
+    @media screen and (@breakpoint-xs) {
+      display: inline-block;
+    }
+  }
+
+  &__label {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      padding: 13px;
+  }
+
+  &__band {
+    @media screen and (@breakpoint-xs) {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #3D9090;
+    }
+  }
+
+  &__checkbox {
+    &:not(:checked) ~ .nav__list {
+      height: 0px;
+    }
+
+    &:checked ~ .nav__list {
+      height: calc(100vh - 75px);
+      overflow-y: auto;
+    }
+  }
+}

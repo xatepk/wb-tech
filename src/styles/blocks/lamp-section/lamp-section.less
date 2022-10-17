@@ -25,14 +25,19 @@
         opacity: 0;
       }
 
-      @media screen and (@breakpoint-ml) {
-        max-width: 340px;
-        height: 340px;
+      @media screen and (@breakpoint-xxl) {
+        max-width: 365px;
+        height: 365px;
       }
 
-      @media screen and (@breakpoint-lxl) {
-        max-width: 400px;
-        height: 400px;
+      @media screen and (@breakpoint-xl) {
+        max-width: 310px;
+        height: 310px;
+      }
+
+      @media screen and (@breakpoint-md) {
+        max-width: 280px;
+        height: 280px;
       }
     }
 
@@ -50,7 +55,7 @@
         padding-bottom: 0;
       }
 
-      @media screen and (@breakpoint-lxl) {
+      @media screen and (@breakpoint-xxl) {
         font-size: 12px;
       }
     }
@@ -61,14 +66,25 @@
     }
 
     &__lamp-image {
-      max-width: 150px;
+      max-width: 120px;
       object-fit: contain;
       position: absolute;
       top: 0;
       right: 165px;
 
-      @media screen and (@breakpoint-ml) {
-        max-width: 95px;
+      @media screen and (@breakpoint-xxl) {
+        right: 135px;
+        max-width: 100px;
+      }
+
+      @media screen and (@breakpoint-xl) {
+        right: 130px;
+        max-width: 70px;
+      }
+
+      @media screen and (@breakpoint-lg) {
+        right: 100px;
+        max-width: 50px;
       }
     }
 }

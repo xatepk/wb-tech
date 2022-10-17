@@ -1,8 +1,5 @@
 .icons {
   margin-top: 40px;
-  background-color: #BDDDDD;
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
   .fade-in-mixin();
 
   &__empty {
@@ -15,6 +12,9 @@
     padding: 0;
     list-style-type: none;
     overflow-y: scroll;
+    background-color: #BDDDDD;
+    border-top-left-radius: 14px;
+
   }
 
   &__item {
@@ -36,15 +36,26 @@
       background-color: rgba(#fff, .5)
     }
 
-    @media screen and (@breakpoint-lxl) {
-      width: 95px;
-      height: 95px;
+    @media screen and (@breakpoint-xxl) {
+      width: 90px;
+      height: 90px;
     }
 
-    @media screen and (@breakpoint-ml) {
-      width: 65px;
-      height: 65px;
+    @media screen and (@breakpoint-xl) {
+      width: 85px;
+      height: 85px;
     }
+
+    @media screen and (@breakpoint-lg) {
+      width: 55px;
+      height: 55px;
+    }
+
+    @media screen and (@breakpoint-md) {
+      width: 50px;
+      height: 50px;
+    }
+
   }
 
   &__theme {
@@ -81,12 +92,13 @@
     &_is-active {
       opacity: 1;
     }
+
   }
 
-  @media screen and (@breakpoint-xs-s) {
-    width: 100%;
-    max-width: 104px;
-    margin-left: auto;
+  @media screen and (@breakpoint-md) {
+    // width: 100%;
+    // max-width: 104px;
+    // margin-left: auto;
   }
 
 }
