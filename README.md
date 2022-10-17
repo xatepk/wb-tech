@@ -1,8 +1,10 @@
 # Wb-tech
 Репозиторий для приложения проекта `Wb-tech`, включающий фронтенд часть.
 
+Директория dist не добавлена в .gitignore в связи с необходимостью публикации билда на gh-pages.
+
 Для запуска development build воспользуйтесь командой - npm run dev
-Для запуска production build воспользуйтесь командой - npm build
+Для запуска production build воспользуйтесь командой - npm run build
 
 
 # Стек

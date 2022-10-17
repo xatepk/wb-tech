@@ -7,7 +7,7 @@
 .pnp.js
 *.log
 *.test.js
-/dist
+# /dist
 
 # testing
 /coverage
