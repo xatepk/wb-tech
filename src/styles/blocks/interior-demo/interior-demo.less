@@ -1,33 +1,58 @@
 .interior-demo {
-  width: 867px;
+  width: 100%;
   max-width: 867px;
   display: flex;
-  margin-top: 28px;
-  margin-right: 30px;
   position: relative;
   overflow: hidden;
-
-
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
   &__image {
-    flex-grow: 1;
-    padding-top: 125%;
-    background: url("../../../@{mainImage}") no-repeat center;
-    background-size: cover;
     border-radius: 10px;
     margin: 0;
+    width: 100%;
+  }
 
-    &_dark {
-      background: url("../../../img/dark_theme.svg") no-repeat center;
-      background-size: cover;
+  &__image-dark {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+
+    &_is-active {
+      display: block;
     }
   }
 
+
   &__lamp {
     position: absolute;
-    top: 0;
-    left: 120px;
-    width: 20%;
+    top: -100px;
+    right: 500px;
+    max-width: 17%;
     object-fit: contain;
+
+    &[src="https://i.postimg.cc/G2CnB0W3/pngwing-com.png"] {
+      top: 0;
+    }
+
+    @media screen and (@breakpoint-ml) {
+      top: -60px;
+      right: 385px;
+      max-width: 15%;
+    }
+  }
+
+  @media screen and (@breakpoint-lxl) {
+    max-width: 820px;
+  }
+
+  @media screen and (@breakpoint-ml) {
+    max-width: 750px;
+  }
+
+  @media screen and (@breakpoint-sm) {
+    max-width: 650px;
   }
 }

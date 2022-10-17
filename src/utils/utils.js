@@ -4,3 +4,7 @@ export const lampImage = '.interior-demo__lamp';
 export const lampImageSelector = '.icons__image';
 export const preloader = '.preloader';
 export const preloaderNone = 'preloader__ends';
+export const lampInfoList = '.lamp-section__list';
+export const lampInfoEmpty = 'lamp-section__list_empty';
+export const lampIcons = '.icons';
+export const lampIconsEmpty = 'icons__empty';

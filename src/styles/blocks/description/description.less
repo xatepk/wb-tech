@@ -1,18 +1,19 @@
 .description {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  margin-top: 91px;
-  max-width: 741px;
 
   &__text {
     max-width: 600px;
     font-size: 24px;
-    line-height: 1.5;
+    line-height: 32px;
+    letter-spacing: 0.053em;
     color: #000;
-    margin: 0 15px 24px 36px;
+    margin: 91px 15px 80px 36px;
 
-    &:last-of-type {
-      margin-bottom: 80px;
+    @media screen and (@breakpoint-ml) {
+      font-size: 17px;
+      letter-spacing: normal;
     }
   }
 }

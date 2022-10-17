@@ -14,4 +14,13 @@ export default class Section {
   addItem(element) {
     this._container.prepend(element);
   }
+
+  getHeigth() {
+    const iconsItem = this._container.querySelectorAll('.icons__item');
+    let height = 0;
+    for (let i = 0; i < 3; i++) {
+      height = height + iconsItem[i].offsetHeight;
+    }
+    this._container.style.maxHeight = height+'px';
+  }
 }

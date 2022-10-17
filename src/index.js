@@ -1,6 +1,6 @@
 import './styles/index.less';
 import Api from './components/Api';
-import { iconContainer, lampImage, lampImageSelector, lampIsActive, lampValue, preloader, preloaderNone } from './utils/utils';
+import { iconContainer, lampIcons, lampIconsEmpty, lampImage, lampInfoEmpty, lampInfoList, lampValue, preloader, preloaderNone } from './utils/utils';
 import Section from './components/Section';
 import Lamp from './components/Lamp';
 import LampInfo from './components/LampInfo';
@@ -16,7 +16,9 @@ const api = new Api({
 
 api.getInitialLamps()
 .then((result) => {
-  document.querySelector(preloader).classList.add(preloaderNone);
+  document.querySelector(preloader).classList.remove(preloaderNone);
+  document.querySelector(lampInfoList).classList.remove(lampInfoEmpty);
+  document.querySelector(lampIcons).classList.remove(lampIconsEmpty);
   const initialLamps = result;
 
   //создаем экземпляр класса Section для инициализации лампочек с сервера
@@ -44,9 +46,8 @@ api.getInitialLamps()
     return lampElement
   }
 
-
-
   lampsList.renderItems();
+  lampsList.getHeigth();
 })
 .catch((err) => {
   console.log(err);

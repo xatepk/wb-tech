@@ -45,7 +45,7 @@ export default class Lamp {
   setClassIsActive() {
     const imageLamp = this._element.querySelector('.icons__image');
     const lampList = document.querySelectorAll('.icons__image');
-    const darkTheme = document.querySelector('.icons__button-theme_dark')
+    const darkTheme = document.querySelector('.interior-demo__image-dark');
 
     for(let i = 0; i < lampList.length; i++) {
       lampList[i].classList.remove('icons__image_is-active');
@@ -54,11 +54,10 @@ export default class Lamp {
     imageLamp.classList.add('icons__image_is-active');
 
     if (!this._darkMode) {
-      darkTheme.disabled = true;
+      darkTheme.classList.remove('interior-demo__image-dark_is-active');
       document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
       document.querySelector('.interior-demo__image').classList.remove('interior-demo__image_dark');
     } else {
-      darkTheme.disabled = false;
       document.querySelector('.icons__button-theme_light').classList.add('icons__button-theme_is-active');
     }
   }
