@@ -11,14 +11,15 @@ const devtool = devMode ? 'source-map' : undefined;
 module.exports = {
   mode,
   devtool,
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: path.resolve(__dirname, 'src', 'js', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: './js/bundle.[contenthash:8].js',
+    filename: 'bundle.[contenthash:8].js',
     clean: true,
     assetModuleFilename: '[name].[contenthash:8][ext]',
   },
   devServer: {
+    static: path.resolve(__dirname, 'dist'),
     port: 8080,
     open: true,
     hot: true,
@@ -27,11 +28,18 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', { targets: 'defaults' }],
+            ],
+          },
+        },
       },
       {
-        test: /\.(png|svg|jpe?g|gif|woff|woff2|ttf)$/i,
+        test: /\.(png|svg|webp|jpe?g|gif|woff|woff2|ttf)$/i,
         type: 'asset/resource',
       },
       {

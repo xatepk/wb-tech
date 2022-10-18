@@ -1,9 +1,9 @@
-import './styles/index.less';
-import Api from './components/Api';
-import Lamp from './components/Lamp';
-import LampInfo from './components/LampInfo';
-import Section from './components/Section';
-import ThemeLamp from './components/ThemeLamp';
+import '../styles/index.less';
+import Api from '../components/Api';
+import Lamp from '../components/Lamp';
+import LampInfo from '../components/LampInfo';
+import Section from '../components/Section';
+import ThemeLamp from '../components/ThemeLamp';
 import {
   iconContainer,
   lampIcons,
@@ -14,7 +14,7 @@ import {
   lampValue,
   preloader,
   preloaderNone,
-} from './utils/utils';
+} from '../utils/utils';
 
 const api = new Api({
   baseUrl: 'https://private-anon-983412ab49-lampshop.apiary-mock.com/lamps',
