@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: './js/bundle.[contenthash:8].js',
     clean: true,
-    assetModuleFilename: './assets/[name].[contenthash:8][ext]',
+    assetModuleFilename: '[name].[contenthash:8][ext]',
   },
   devServer: {
     port: 8080,
@@ -50,7 +50,7 @@ module.exports = {
       filename: 'index.html',
     }),
     !devMode && new MiniCssExtractPlugin({
-      filename: './css/index.css',
+      filename: 'index.css',
     }),
   ].filter(Boolean),
   optimization: {
